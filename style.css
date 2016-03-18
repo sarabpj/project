@@ -1,0 +1,118 @@
+body{
+  /*background-color: purple;*/
+  background-image: url("blue-paper-textures-collection.jpg");
+  
+}
+#workout{
+  background-color: #286EA3;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  height: 550px;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 3%;
+  opacity: .85;
+}
+
+
+.mainList{
+  border-radius: 2%;
+  font-size: 1.3em;
+  margin: 40px;
+  width: 85%;
+} 
+
+
+#start{
+  font-size: 2em;
+  border-radius: 3%;
+  margin: 15px;
+  position: absolute;
+  right: 38%;
+  bottom: 3.3em;
+  font-family: 'Lobster', Georgia, Times, serif;
+  background-color: #3D98DD;
+  width: 150px;
+}
+
+#nameTimer{
+  display: inline-flex;
+}
+
+
+#routine{
+  background-color: #8B9FA1;
+  opacity: .85;
+  width: 75%;
+  height: 550px;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 3%;
+  position: relative;
+}
+
+#moveName{
+  text-align: center;
+  padding: 31px;
+  margin: -8px;
+  font-size: 2.5em;
+  font-family: 'Lobster', Georgia, Times, serif;
+}
+
+
+#moveDescription{
+  text-align:justify;
+  width: 85%;
+  margin: 20px;
+  font-size: 1.2em;
+  max-height: 70%;
+  overflow-y: auto;
+  overflow-x: auto;
+  font-family: 'Cabin', Helvetica, Arial, sans-serif;
+}
+
+#timer{
+  text-align: center;
+  padding: 15px;
+  font-size: 3.2em;
+  position: fixed;
+  left: 71%;
+  font-family: 'Lobster', Georgia, Times, serif;
+}
+
+@keyframes yes{
+
+}
+
+#complete{
+  text-align: center;
+  padding: 15px;
+  font-family: 'Lobster', Georgia, Times, serif;
+  font-size: 2.5em;
+  animation-name: yes;
+  animation-duration: 10s;
+}
+
+
+.yo{
+  display: none;
+
+}
+
+
+#reset{
+  font-size: 1.7em;
+  position: absolute; 
+  bottom: .5em;
+  right: 39%;
+  border-radius: 3%;
+  font-family: 'Lobster', Georgia, Times, serif;
+  background-color: #3D98DD;
+  width: 150px;
+}
+
+#reset:hover{
+
+  background-color: #DD9D3D;
+}
