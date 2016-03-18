@@ -3,6 +3,9 @@ var noEquipmentExercises;
 
 $(document).ready(function(){
 
+ if(localStorage.getItem('key')){
+      noEquipmentExercises = JSON.parse(localStorage.getItem('key'));
+ }else{
   $.ajax({
    method:"Get",
    url: "https://wger.de/api/v2/exercise/?limit=349", //my api key fe637184d6483dfedd86b92c8cbacad3a943afba
@@ -26,31 +29,47 @@ $(document).ready(function(){
 
     });
 
+ //set up cache
+    localStorage.setItem('key', JSON.stringify(noEquipmentExercises));
+      
+
   },
-   error: function ajaxError(){
-      console.log("nope");
-      }
+  error: function ajaxError(){
+    console.log("nope");
+   }
 
   });
+ }
 
-$('#routine').addClass('yo');
+//this is repeated because the ajax call is asynchronous and will not 
+//reach the each and will return undefined
+ $.each(noEquipmentExercises, function(key, val){
+ $('.mainList').append('<option value="' + key + '">' + val.name + '</option>');
+ });
+
+ $('#routine').addClass('hide');
   var count = 0;
 
-  $('form').on('submit', function(e){
-    e.preventDefault(); 
-    moves = [$('#firstMove').val(), $('#secondMove').val(), $('#thirdMove').val(), $('#fourthMove').val()];
-    $('#workout').addClass('yo').fadeOut(1000,function(){
-      changeInfo();
+ $('form').on('submit', function(e){
+  e.preventDefault(); 
+//sets it to pushups if nothing is entered
+  if( !$('.mainList').val() ) {
+    $('.mainList').val("9");
+    }
+  moves = [$('#firstMove').val(), $('#secondMove').val(), $('#thirdMove').val(), $('#fourthMove').val()];
+    
+
+  $('#workout').addClass('hide').fadeOut(1000,function(){
+    changeInfo();
   //store input vals into array
-   // changeInfo();
-    $('#routine').removeClass('yo');
-    $('#routine').append("<br><button id='reset'>Reset</button>").css('align', 'center');
-      $('#reset').click(function(){window.location.reload();}); 
-   });
+  // changeInfo();
+  $('#routine').removeClass('hide');
+  $('#routine').append("<br><button id='reset'>Reset</button>").css('align', 'center');
+    $('#reset').click(function(){window.location.reload();}); 
+  });
   });
 
   function changeExerciseText(num){
-
     var exercise = noEquipmentExercises[moves[num]];
     $('#moveName').text(exercise.name).hide().fadeIn(2500);
     $('#moveDescription').html(exercise.description).hide().fadeIn(2500); 
@@ -62,9 +81,7 @@ $('#routine').addClass('yo');
       startCount--;
       if(startCount < 1){
           $('#audio')[0].play();
-
-      }
-     
+      }    
       if(startCount < 0){
           clearInterval(timer);
           $('#timer').text('');
@@ -76,23 +93,21 @@ $('#routine').addClass('yo');
 
   function changeInfo(){  
     if(count < moves.length){
-          // $('#audio').on("canplay", function() {
-          //   $('#audio')[0].play();
-          // });
-        changeExerciseText(count);
-        timer(2,changeInfo);
+      changeExerciseText(count);
+      timer(3,changeInfo);
     }
     if(count === 4){
       $('#moveName').text('');
       $('#moveDescription').text('');
       $('#complete').html('<h1>Workout Complete!</h1>').fadeIn(2500); 
-      $('body').sparkle({color: "rainbow",
-  count: 3000,
-  overlap: 0,
-  speed: 1,
-  minSize: 4,
-  maxSize: 7,
-  direction: "both",});
+      $('body').sparkle({
+        color: "rainbow",
+        count: 3000,
+        overlap: 0,
+        speed: 1,
+        minSize: 4,
+        maxSize: 7,
+        direction: "both",});
     }
   }
 

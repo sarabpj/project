@@ -1,5 +1,5 @@
 body{
-  /*background-color: purple;*/
+ 
   background-image: url("blue-paper-textures-collection.jpg");
   
 }
@@ -81,21 +81,17 @@ body{
   font-family: 'Lobster', Georgia, Times, serif;
 }
 
-@keyframes yes{
 
-}
 
 #complete{
   text-align: center;
   padding: 15px;
   font-family: 'Lobster', Georgia, Times, serif;
   font-size: 2.5em;
-  animation-name: yes;
-  animation-duration: 10s;
 }
 
 
-.yo{
+.hide{
   display: none;
 
 }
