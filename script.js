@@ -94,7 +94,7 @@ $(document).ready(function(){
   function changeInfo(){  
     if(count < moves.length){
       changeExerciseText(count);
-      timer(3,changeInfo);
+      timer(60,changeInfo);
     }
     if(count === 4){
       $('#moveName').text('');
@@ -102,9 +102,9 @@ $(document).ready(function(){
       $('#complete').html('<h1>Workout Complete!</h1>').fadeIn(2500); 
       $('body').sparkle({
         color: "rainbow",
-        count: 3000,
+        count: 5000,
         overlap: 0,
-        speed: 1,
+        speed: 2,
         minSize: 4,
         maxSize: 7,
         direction: "both",});
