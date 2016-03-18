@@ -25,15 +25,18 @@ body{
 
 
 #start{
-  font-size: 2em;
+  font-size: 1.7em;
   border-radius: 3%;
-  margin: 15px;
-  position: absolute;
-  right: 38%;
-  bottom: 3.3em;
   font-family: 'Lobster', Georgia, Times, serif;
   background-color: #3D98DD;
   width: 150px;
+  position: relative;
+  top: 10%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%)
+
+
 }
 
 #nameTimer{
