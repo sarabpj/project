@@ -94,20 +94,20 @@ $(document).ready(function(){
   function changeInfo(){  
     if(count < moves.length){
       changeExerciseText(count);
-      timer(60,changeInfo);
+      timer(5,changeInfo);
     }
     if(count === 4){
       $('#moveName').text('');
       $('#moveDescription').text('');
       $('#complete').html('<h1>Workout Complete!</h1>').fadeIn(2500); 
-      $('body').sparkle({
-        color: "rainbow",
-        count: 5000,
-        overlap: 0,
-        speed: 2,
-        minSize: 4,
-        maxSize: 7,
-        direction: "both",});
+      // $('body').sparkle({
+      //   color: "rainbow",
+      //   count: 5000,
+      //   overlap: 0,
+      //   speed: 2,
+      //   minSize: 4,
+      //   maxSize: 7,
+      //   direction: "both",});
     }
   }
 
